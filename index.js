@@ -1,31 +1,35 @@
-// Your code here// Your code here
-const moveDodgerLeft = () => {
-	let dodger = document.getElementById("dodger");
-	let left = parseInt(dodger.style.left) || 0; // Parse integer value, default to 0 if NaN
+// Your code here
+const dodger = document.getElementById("dodger");
 
+function moveDodgerLeft() {
+	const leftNumbers = dodger.style.left.replace("px", "");
+	const left = parseInt(leftNumbers, 10);
 
 	if (left > 0) {
-		dodger.style.left = `${left -1}px`;
-  }
-  else{dodger.style.left = `${left - 2}px`;}
-};
+		dodger.style.left = `${left - 1}px`;
+	}
+}
 
+document.addEventListener("keydown", function (e) {
+	if (e.key === "ArrowLeft") {
+		moveDodgerLeft();
+	}
+});
 
-moveDodgerLeft();
+function moveDodgerRight() {
+	const rightNumbers = dodger.style.left.replace("px", "");
+	const right = parseInt(rightNumbers, 10);
 
-const moveDodgerRight = () => {
-	let dodger = document.getElementById("dodger");
-	let left= parseInt(dodger.style.left || 0); // Parse integer value, default to 0 if NaN
+	if (right > 0) {
+		dodger.style.left = `${right + 1}px`;
+	}
+}
 
-	
-	if (left > 0) {
-		dodger.style.left = `${left +1}px`;
-  }
-  
-};
+document.addEventListener("keydown", function (e) {
+	if (e.key === "ArrowRight") {
+		moveDodgerRight();
+	}
+});
 
-document.addEventListener('keydown', (e) => { if (e.key==='ArrowLeft') {moveDodgerLeft
-  
-}})
 
 
